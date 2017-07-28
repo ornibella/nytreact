@@ -2,20 +2,14 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
-  main_headline: {
+  title: {
     type: String
-  },
-  web_url: {
-    type: String
-  },
-  snippet: {
-    type: String
-  },
-  pub_date: {
-    type: Date
   },
   date: {
-    type: Date
+    type: Date  
+  },
+  url: {
+    type: String
   }
 });
 

@@ -1,8 +1,8 @@
-// Include React
+
 var React = require("react");
 var helpers = require("../utils/helpers");
 
-// This is the Saved component. It will be used to show saved articles.
+// Saved component
 var Saved = React.createClass({
 
   getInitialState: function() {
@@ -11,7 +11,7 @@ var Saved = React.createClass({
      };
   },
 
-  // When a user clicks on 'Delete'...
+// Delete
   handleClick: function(article) {
    
   var id = article._id;
@@ -36,31 +36,30 @@ var Saved = React.createClass({
 
   },
 
-  // Here we describe this component's render method
   render: function() {
     return (
       <div className="panel panel-default">
         <div className="panel-heading">
-          <h2 className="panel-title text-center" style={{fontSize: 25 + 'px', fontWeight: 'bold', color: 'blue'}}>Saved Articles</h2>
+          <h2 className="panel-title text-center" style={{fontSize: 25px, fontWeight: 'bold', color: 'gray'}}>Saved Articles</h2>
         </div>
         <div className="panel-body">
 
-          {/* Here we use a map function to loop through an array in JSX */}
+          {}
           {this.props.savedArticles.map(function(article, i) {
-            return (
+          return (
               <div key={i} className="row">
-                <div className="col-md-10">
+              <div className="col-md-10">
                   <h2><a href={article.web_url}>{article.main_headline}</a></h2>
                   <p>{article.snippet}</p>
                   <p>Published: {article.pub_date}</p>
                   <p>_id: {article._id}</p>
                 </div>
                 <div className="col-md-2">
-                  <button onClick={this.handleClick.bind(this, article)} className="btn btn-danger" style={{marginLeft: 25 + '%', marginTop: 25 + '%'}}>
+                  <button onClick={this.handleClick.bind(this, article)} className="btn btn-danger" style={{marginLeft: 25%, marginTop: 25%}}>
                     Delete
                   </button>
                 </div>
-              </div>
+              </div>     
             );
           }.bind(this))}
         </div>
@@ -69,7 +68,7 @@ var Saved = React.createClass({
   }
 });
 
-// Export the component back for use in other files
+
 module.exports = Saved;
                  
                   

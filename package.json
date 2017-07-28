@@ -10,6 +10,7 @@
     "build": "webpack"
   },
   "author": "Ornella Hernandez",
+  "license": "ISC",
   "dependencies": {
     "axios": "^0.12.0",
     "bluebird": "^3.5.0",

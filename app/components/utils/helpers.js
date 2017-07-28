@@ -1,10 +1,8 @@
-// Include the axios package for performing HTTP requests (promise based alternative to request)
+
 var axios = require("axios");
 
-// Geocoder API
 var nytimsAPI = "e67cc947d8604b06af1b2f9b7d6a703d";
 
-// Helper functions for making API Calls
 var helper = {
 
 
@@ -31,12 +29,12 @@ var helper = {
     });
   },
 
-  // This function hits our own server to retrieve the saved articles
+
   getSaved: function() {
     return axios.get("/api");
   },
 
-  // This function posts new articles to our database.
+
   postSaved: function(headline, url, snippet, date) {
     var newArticle = {headline: headline, url: url, date: date, snippet: snippet};
     console.log("helper postSaved article", newArticle);
@@ -70,5 +68,4 @@ var helper = {
 
 };
 
-// We export the API helper
 module.exports = helper;

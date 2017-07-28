@@ -1,10 +1,7 @@
-// Include React
 var React = require("react");
-
-// Helper for making AJAX requests to our API
 var helpers = require("../utils/helpers");
 
-// Creating the Results component
+// Results component
 var Results = React.createClass({
 
   getInitialState: function() {
@@ -13,7 +10,6 @@ var Results = React.createClass({
      };
   },
 
- // When a user clicks on 'Save'...
   handleClick: function(article) {
    
    console.log("Save pressed!", article);
@@ -41,7 +37,8 @@ var Results = React.createClass({
 
   },
 
-  // Here we render the function
+
+
   render: function() {
     return (
       <div className="panel panel-default">
@@ -50,7 +47,7 @@ var Results = React.createClass({
         </div>
         <div className="panel-body">
 
-          {/* Here we use a map function to loop through an array in JSX */}
+          {}
           {this.props.results.map(function(article, i) {
             return (
               <div className = "row" key={i}>
@@ -73,5 +70,4 @@ var Results = React.createClass({
   }
 });
 
-// Export the component back for use in other files
 module.exports = Results;

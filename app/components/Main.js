@@ -1,20 +1,17 @@
-// Include React
 var React = require("react");
 
-// Here we include all of the sub-components
+
 var Form = require("./children/Form");
 var Results = require("./children/Results");
 var Saved = require("./children/Saved");
 var Promise = require("bluebird");
 
-// Helper for making AJAX requests to our API
+
 var helpers = require("./utils/helpers");
 
-// Creating the Main component
 var Main = React.createClass({
 
-  // Here we set a generic state associated with the number of clicks
-  // Note how we added in this savedArticles state variable
+
   getInitialState: function() {
     return { 
       topic: "", 
@@ -25,7 +22,7 @@ var Main = React.createClass({
     };
   },
 
-  // The moment the page renders get the saved articles
+
   componentDidMount: function() {
     // Get the saved articles.
     helpers.getSaved().then(function(response) {
@@ -37,10 +34,10 @@ var Main = React.createClass({
     }.bind(this));
   },
 
-  // If the component changes (i.e. if a search is entered)...
+
   componentDidUpdate: function() {
     console.log("componentDidUpdate!!");
-    // Run the query for the article search
+    // article search query
     helpers.runQuery({
       topic: this.state.topic,
       start: this.state.start,
@@ -52,7 +49,7 @@ var Main = React.createClass({
       }
     }.bind(this));
   },
-  // This function allows childrens to update the parent.
+  
   setTopic: function(topic) {
     this.setState({ topic: topic });
   },
@@ -66,12 +63,12 @@ var Main = React.createClass({
       this.setState({ savedArticles: saved });
     },
 
-  // Here we render the function
+
   render: function() {
     return (
       <div className="container">
         <div className="row">
-          <div className="jumbotron">
+        <div className="jumbotron">
             <h2 className="text-center">NYTimes Article Search using React!</h2>
             <p className="text-center">
               <em>Enter a search term and retun articles containing that topic.</em>
@@ -96,5 +93,5 @@ var Main = React.createClass({
   }
 });
 
-// Export the component back for use in other files
+
 module.exports = Main;
